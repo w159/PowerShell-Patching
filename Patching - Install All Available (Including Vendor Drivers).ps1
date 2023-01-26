@@ -1,4 +1,6 @@
-﻿$Manufacturer = Get-WmiObject win32_bios | Select -ExpandProperty Manufacturer
+function Patch-MeUp {
+
+$Manufacturer = Get-WmiObject win32_bios | Select -ExpandProperty Manufacturer
 New-Item -Path C:\ -Name Utils -ItemType Directory -Force -ErrorAction SilentlyContinue
 
 If ($Manufacturer -like '*Dell*') {
@@ -111,3 +113,5 @@ Do
 }
 
 Until ($TimeNow -ge $TimeEnd)
+
+}
